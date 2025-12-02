@@ -1,0 +1,27 @@
+{
+  "projects": [
+    {
+      "id": "redbird",
+      "title": "红鸟小屋",
+      "description": "杰森陶德的专注陪伴番茄钟",
+      "shortDescription": "通过专注获得金币，解锁更多剧情物品。真的会学习的对吧（指",
+      "image": "/images/projects/project-1.jpg",
+      "link": "https://redbird.minkof.com",
+      "tags": ["React", "Next.js", "TypeScript"],
+      "date": "2025-11-19",
+      "featured": true
+    },
+    {
+      "id": "outlaws",
+      "title": "夜巡通讯器",
+      "description": "杰森陶德的夜巡通讯器",
+      "shortDescription": "纯粹用来耍帅的！沉浸式第一视角杰陶体验。没什么交互，但酷🕶️",
+      "image": "/images/projects/project-2.jpg",
+      "link": "https://outlawsops.minkof.com",
+      "tags": ["html", "css", "js"],
+      "date": "2025-09-02",
+      "featured": false
+    }
+  ]
+}
+
