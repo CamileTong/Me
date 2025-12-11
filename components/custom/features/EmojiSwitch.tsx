@@ -74,9 +74,9 @@ function EmojiBubble({ text, onComplete }: EmojiBubbleProps) {
 
 // 文字泡内容列表（placeholder）
 const TEXT_LIST = [
-  '嗨甜心^^', '呜哇好痛', '轻一点戳啦', '^^', '你好你好', '请戳请戳', '好玩吗？',
-  '嗨甜心^^', '呜哇好痛', '轻一点戳啦', '^^', '你好你好', '请戳请戳','好玩吗？',
-  '🙂','🎵','🙄','😏','😎','🥺','🖕','🍷'
+  '嗨甜心^^', '呜哇好痛', '轻一点戳啦', '^^', '你好你好', '请戳请戳',
+  '嗨甜心^^', '呜哇好痛', '轻一点戳啦', '^^', '你好你好', '请戳请戳',
+  '🎵','😏','😎','🥺','🖕','🍷'
 ];
 
 export default function EmojiSwitch({
@@ -90,8 +90,23 @@ export default function EmojiSwitch({
   const [bubbles, setBubbles] = useState<Bubble[]>([]);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const debounceTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const isDoubleClickRef = useRef(false);
 
   const handleDoubleClick = () => {
+    // 标记为双击，防止触发单击事件
+    isDoubleClickRef.current = true;
+    
+    // 清除单击事件的定时器，防止显示文字泡
+    if (debounceTimerRef.current) {
+      clearTimeout(debounceTimerRef.current);
+      debounceTimerRef.current = null;
+    }
+    
+    // 延迟重置标志，确保单击事件处理时能检测到
+    setTimeout(() => {
+      isDoubleClickRef.current = false;
+    }, 300);
+    
     // 只有在显示 GIF1 且未播放时才能切换
     if (currentGif === 'gif1' && !isPlaying) {
       // 切换到 GIF2
@@ -137,12 +152,22 @@ export default function EmojiSwitch({
 
   // 处理单击事件，显示文字泡
   const handleClick = useCallback(() => {
+    // 如果刚刚发生了双击，不执行单击操作
+    if (isDoubleClickRef.current) {
+      return;
+    }
+    
     // 防抖：清除之前的定时器
     if (debounceTimerRef.current) {
       clearTimeout(debounceTimerRef.current);
     }
     // 设置新的定时器
     debounceTimerRef.current = setTimeout(() => {
+      // 再次检查是否发生了双击（防止在延迟期间发生双击）
+      if (isDoubleClickRef.current) {
+        return;
+      }
+      
       // 随机选择一个文字
       const randomIndex = Math.floor(Math.random() * TEXT_LIST.length);
       const randomText = TEXT_LIST[randomIndex];
