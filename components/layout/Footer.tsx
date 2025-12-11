@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -23,23 +24,32 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/blog" className="text-neutral-gray hover:text-warm-orange transition-colors">
-                  日志
+                <Link href="/custom" className="text-neutral-gray hover:text-warm-orange transition-colors">
+                  私人订制
                 </Link>
               </li>
               <li>
+                <Link href="/blog" className="text-neutral-gray hover:text-warm-orange transition-colors">
+                  碎碎念
+                </Link>
+              </li>
+              {/* <li>
                 <Link href="/contact" className="text-neutral-gray hover:text-warm-orange transition-colors">
                   联系我
                 </Link>
-              </li>
+              </li> */}
             </ul>
           </div>
           
           <div>
-            <h4 className="text-lg font-semibold mb-4">联系方式</h4>
-            <p className="text-neutral-gray">
-              欢迎通过各个渠道联系我
-            </p>
+            <h4 className="text-lg font-semibold mb-4">小红书</h4>
+            <Image 
+              src="/images/other/red_qr.jpg" 
+              alt="联系方式二维码" 
+              width={150} 
+              height={150}
+              className="rounded-lg"
+            />
           </div>
         </div>
         

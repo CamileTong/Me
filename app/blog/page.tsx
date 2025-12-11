@@ -8,8 +8,8 @@ export default function BlogPage() {
     <div className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h1 className="text-5xl font-bold text-neutral-dark mb-4">日志</h1>
-          <p className="text-xl text-neutral-gray">记录我的思考和开发历程</p>
+          <h1 className="text-5xl font-bold text-neutral-dark mb-4">碎碎念</h1>
+          <p className="text-xl text-neutral-gray">话太密了，小红书字数限制阻止我发挥</p>
         </div>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">

@@ -4,10 +4,10 @@ import { sendEmail } from '@/lib/email';
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { name, email, message, service, phone } = body;
+    const { name, qq, requirement, artAcknowledged, characterIntro, questions } = body;
     
     // 基本验证
-    if (!name || !email || !message) {
+    if (!name || !qq || !requirement || !artAcknowledged || !characterIntro) {
       return NextResponse.json(
         { success: false, message: '请填写所有必填字段' },
         { status: 400 }
@@ -17,9 +17,11 @@ export async function POST(request: NextRequest) {
     // 发送邮件
     const result = await sendEmail({
       name,
-      email,
-      message,
-      service: service || '未指定',
+      qq,
+      requirement,
+      artAcknowledged,
+      characterIntro,
+      questions: questions || undefined,
     });
     
     if (result.success) {

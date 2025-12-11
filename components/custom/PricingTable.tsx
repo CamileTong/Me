@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Card from '@/components/ui/Card';
+import { div } from 'framer-motion/client';
 
 interface PricingItem {
   name: string;
@@ -12,40 +13,48 @@ interface PricingItem {
 
 const pricingItems: PricingItem[] = [
   {
-    name: '基础定制',
-    price: '¥999',
+    name: '火花',
+    price: '¥499',
     features: [
-      '响应式设计',
-      '基础功能实现',
-      '1次修改机会',
-      '7天交付周期',
+      '专注番茄钟+待办事项+邮箱',
+      '戳戳乐',
+      '商城（摆件*4，宠物*4， 背景*3）',
+      '最多10名注册用户',
+      '包含半年部署'
     ],
   },
   {
-    name: '标准定制',
-    price: '¥2999',
+    name: '明灯',
+    price: '¥888',
     features: [
-      '响应式设计',
-      '完整功能实现',
-      '3次修改机会',
-      '14天交付周期',
-      'SEO优化',
-      '性能优化',
+      '上一级所有功能',
+      '商城（摆件*12，宠物*12， 背景*8）',
+      'ui主题/色系调整',
+      '最多50名注册用户',
+      '字卡/音乐盒/决策币/日记本',
+      '包含3次内容更新',
     ],
-    popular: true,
+    popular: false,
   },
   {
-    name: '高级定制',
-    price: '¥5999',
+    name: '星体',
+    price: '¥1299',
     features: [
-      '响应式设计',
-      '完整功能实现',
-      '无限修改机会',
-      '21天交付周期',
-      'SEO优化',
-      '性能优化',
-      '后台管理系统',
-      '长期技术支持',
+      '上一级所有功能',
+      '商品数量无限制',
+      '定时邮件（生日/特殊节日）',
+      '换装系统/皮肤系统',
+      '包含6次内容更新',
+    ],
+  },
+  {
+    name: '增值服务',
+    price: '¥？',
+    features: [
+      '半年后部署续费 - ¥9.9/月',
+      '文案 - 根据需求定价',
+      '定制功能 - 根据需求定价',
+      '内容更新 - 还没想好先放着...'
     ],
   },
 ];
@@ -53,6 +62,7 @@ const pricingItems: PricingItem[] = [
 export default function PricingTable() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+      
       {pricingItems.map((item, index) => (
         <motion.div
           key={item.name}

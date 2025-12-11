@@ -9,7 +9,7 @@ const navItems = [
   { href: '/', label: '首页' },
   { href: '/custom', label: '私人订制' },
   { href: '/blog', label: '碎碎念' },
-  { href: '/contact', label: '联系我' },
+  // { href: '/contact', label: '联系我' },
 ];
 
 export default function Navigation() {

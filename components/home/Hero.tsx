@@ -52,10 +52,10 @@ export default function Hero() {
             <span className="inline-block ml-2 group-hover:translate-x-1 transition-transform">→</span>
           </a>
           <a
-            href="/contact"
+            href="/custom"
             className="px-8 py-4 border border-warm-text/10 text-warm-text rounded-full font-semibold hover:bg-white hover:border-transparent hover:shadow-lg hover:shadow-warm-text/5 transition-all duration-300 bg-white/50 backdrop-blur-sm"
           >
-            联系我
+            私人订制
           </a>
         </motion.div>
       </div>

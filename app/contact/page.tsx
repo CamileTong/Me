@@ -19,7 +19,7 @@ export default function ContactPage() {
         <div className="text-center mb-16">
           <h1 className="text-5xl font-bold text-neutral-dark mb-4">联系我</h1>
           <p className="text-xl text-neutral-gray">
-            欢迎通过以下方式与我取得联系
+            土豆土豆，我是地瓜。收到请回复
           </p>
         </div>
         

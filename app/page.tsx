@@ -16,7 +16,7 @@ export default function Home() {
               活的项目们
             </h2>
             <p className="text-xl text-neutral-gray max-w-2xl mx-auto font-light">
-              开袋即食！这里有一些我正在折腾或者已经折腾完的小玩意儿。
+              开袋即食！
             </p>
           </div>
           
