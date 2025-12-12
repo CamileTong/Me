@@ -53,7 +53,7 @@ export async function sendEmail(data: EmailData): Promise<{ success: boolean; me
 
     return {
       success: true,
-      message: '邮件发送成功！我们会尽快回复您。',
+      message: '邮件发送成功！感谢投递，我会尽快回复^^',
     };
   } catch (error) {
     console.error('Email send error:', error);

@@ -13,17 +13,32 @@ interface ProjectCardProps {
 }
 
 export default function ProjectCard({ project, index }: ProjectCardProps) {
+  const imageContent = (
+    <div className="relative w-full h-48 overflow-hidden">
+      <Image
+        src={project.image}
+        alt={project.title}
+        fill
+        className="object-cover"
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+      />
+    </div>
+  );
+
   const cardContent = (
     <div className="h-full flex flex-col">
-      <div className="relative w-full h-48 overflow-hidden">
-        <Image
-          src={project.image}
-          alt={project.title}
-          fill
-          className="object-cover"
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-        />
-      </div>
+      {project.link ? (
+        <Link
+          href={project.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="cursor-pointer"
+        >
+          {imageContent}
+        </Link>
+      ) : (
+        imageContent
+      )}
       
       <div className="p-6 flex-1 flex flex-col">
         <div className="flex items-start justify-between mb-3">

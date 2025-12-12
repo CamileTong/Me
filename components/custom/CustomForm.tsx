@@ -68,7 +68,7 @@ export default function CustomForm() {
       <div className="p-8">
         <h2 className="text-3xl font-bold text-neutral-dark mb-6">定制意向表</h2>
         <p className="text-neutral-gray mb-6">
-        ！！必读须知！！
+        ⚠️必读须知
         <br />
         1. 我只提供程序和部署，不提供美术部分。所有美术（人物主图，商品图，背景图）需要自带！
         <br />
