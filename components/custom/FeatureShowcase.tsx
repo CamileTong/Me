@@ -10,7 +10,7 @@ export default function FeatureShowcase() {
       <div className="text-center mb-12">
         <h2 className="text-4xl font-bold text-neutral-dark mb-4">功能demo</h2>
         <p className="text-xl text-neutral-gray max-w-2xl mx-auto">
-          主要玩法可以在<a href="https://redbird.minkof.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">红鸟小屋</a>体验！这里囤些小demo
+          主要玩法可以在<a href="https://redbird.minkof.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">红鸟小屋</a>体验。这里囤点demo
         </p>
       </div>
 

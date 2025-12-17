@@ -212,7 +212,6 @@ export default function EmojiSwitch({
         <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-warm-yellow/20 to-warm-orange/20 rounded-lg">
           <div className="text-center">
             <div className="text-6xl mb-2"></div>
-            <div className="text-xs text-neutral-gray">播放中...</div>
           </div>
         </div>
       )}
