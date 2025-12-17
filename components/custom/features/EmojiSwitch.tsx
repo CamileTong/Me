@@ -201,7 +201,7 @@ export default function EmojiSwitch({
       {currentGif === 'gif1' && (
         <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-warm-peach/20 to-warm-coral/20 rounded-lg">
           <div className="text-center">
-            <div className="text-6xl mb-2">😊</div>
+            <div className="text-6xl mb-2"></div>
             <div className="text-xs text-neutral-gray">双击切换表情</div>
           </div>
         </div>
@@ -211,7 +211,7 @@ export default function EmojiSwitch({
       {currentGif === 'gif2' && (
         <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-warm-yellow/20 to-warm-orange/20 rounded-lg">
           <div className="text-center">
-            <div className="text-6xl mb-2">😄</div>
+            <div className="text-6xl mb-2"></div>
             <div className="text-xs text-neutral-gray">播放中...</div>
           </div>
         </div>
