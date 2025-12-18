@@ -209,64 +209,64 @@ export default function EmojiSwitch({
       onDragStart={handleDragStart}
       className="relative w-full h-full cursor-pointer select-none flex items-center justify-center"
     >
-      {/* GIF1 占位符 */}
-      {currentGif === 'gif1' && (
-        <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-warm-yellow/20 to-warm-orange/20 rounded-lg">
-          <div className="text-center">
-            <div className="text-6xl mb-2"></div>
-            <div className="text-xs text-neutral-gray">双击切换表情</div>
-          </div>
+      {/* 实际 GIF 与 占位符：采用叠加图层方式，防止切换白屏 */}
+      <div className="relative w-full h-full">
+        {/* GIF1 层 */}
+        <div 
+          className={`absolute inset-0 ${
+            currentGif === 'gif1' ? 'opacity-100 z-10' : 'opacity-0 z-0'
+          }`}
+        >
+          {gif1 && gif1 !== '/images/features/emoji1-placeholder.gif' ? (
+            <Image
+              src={gif1}
+              alt="表情1"
+              fill
+              className="object-contain"
+              unoptimized
+              draggable={false}
+              priority
+              onLoad={handleGifLoad}
+              onDragStart={handleDragStart}
+              onContextMenu={handleContextMenu}
+            />
+          ) : (
+            <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-warm-yellow/20 to-warm-orange/20 rounded-lg">
+              <div className="text-center">
+                <div className="text-6xl mb-2"></div>
+                <div className="text-xs text-neutral-gray">双击切换表情</div>
+              </div>
+            </div>
+          )}
         </div>
-      )}
 
-      {/* GIF2 占位符 */}
-      {currentGif === 'gif2' && (
-        <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-warm-yellow/20 to-warm-orange/20 rounded-lg">
-          <div className="text-center">
-            <div className="text-6xl mb-2"></div>
-          </div>
+        {/* GIF2 层 */}
+        <div 
+          className={`absolute inset-0 ${
+            currentGif === 'gif2' ? 'opacity-100 z-10' : 'opacity-0 z-0'
+          }`}
+        >
+          {gif2 && gif2 !== '/images/features/emoji2-placeholder.gif' ? (
+            <Image
+              src={gif2}
+              alt="表情2"
+              fill
+              className="object-contain"
+              unoptimized
+              draggable={false}
+              onLoad={handleGifLoad}
+              onDragStart={handleDragStart}
+              onContextMenu={handleContextMenu}
+            />
+          ) : (
+            <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-warm-yellow/20 to-warm-orange/20 rounded-lg">
+              <div className="text-center">
+                <div className="text-6xl mb-2"></div>
+              </div>
+            </div>
+          )}
         </div>
-      )}
-
-      {/* 实际 GIF（当有图片时） */}
-      {currentGif === 'gif1' && gif1 && gif1 !== '/images/features/emoji1-placeholder.gif' && (
-        <div className="relative w-full h-full">
-          <Image
-            src={gif1}
-            alt="表情1"
-            fill
-            className="object-contain"
-            unoptimized
-            draggable={false}
-            onLoad={handleGifLoad}
-            onDragStart={handleDragStart}
-            onContextMenu={handleContextMenu}
-          />
-        </div>
-      )}
-
-      {currentGif === 'gif2' && gif2 && gif2 !== '/images/features/emoji2-placeholder.gif' && (
-        <div className="relative w-full h-full">
-          <Image
-            src={gif2}
-            alt="表情2"
-            fill
-            className="object-contain"
-            unoptimized
-            draggable={false}
-            onLoad={handleGifLoad}
-            onDragStart={handleDragStart}
-            onContextMenu={handleContextMenu}
-          />
-        </div>
-      )}
-
-      {/* 提示文字
-      {!isPlaying && (
-        <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 text-xs text-neutral-gray bg-white/80 px-2 py-1 rounded">
-          双击切换
-        </div>
-      )} */}
+      </div>
 
       {/* 文字泡列表 */}
       <AnimatePresence>
