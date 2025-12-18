@@ -10,13 +10,13 @@ export default function CustomPage() {
         <div className="text-center mb-16">
           <h1 className="text-5xl font-bold text-neutral-dark mb-4">私人订制</h1>
           <p className="text-xl text-neutral-gray max-w-2xl mx-auto">
-            想要oc/其他角色的陪伴网站吗？一月中旬将开放订制^ ^
+            想要oc/其他角色的陪伴网站吗？一月中旬起将开放订制^ ^
             <br />
             感兴趣可以填写<a href="#custom-form" className="text-blue-600 hover:text-blue-800 underline">意向表</a>&加入蹲蹲群
           </p>
           <div className="mt-6 flex justify-center">
             <Image
-              src="/images/other/gc_qr.jpg"
+              src="/images/other/gc_qr.webp"
               alt="群聊二维码"
               width={240}
               height={240}

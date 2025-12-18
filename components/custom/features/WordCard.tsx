@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import cardBg from './card.jpg';
+import cardBg from './card.webp';
 
 interface WordCardProps {
   storageKey?: string;
@@ -88,7 +88,7 @@ export default function WordCard({ storageKey = STORAGE_KEY }: WordCardProps) {
             value={inputText}
             onChange={(e) => setInputText(e.target.value)}
             placeholder="输入文字，用分号分隔&#10;例如：&#10;大盘鸡；薯条；馄饨"
-            className="w-full px-3 py-2 text-sm border border-neutral-gray rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-warm-orange h-32"
+            className="w-full px-3 py-2 text-sm border border-neutral-gray rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-warm-orange h-20"
           />
           <div className="flex gap-2">
             <button

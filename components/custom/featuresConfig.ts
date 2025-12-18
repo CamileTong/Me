@@ -36,10 +36,10 @@ export const features: FeatureConfig[] = [
     title: '角色互动（单击/双击试试看^^）',
     component: EmojiSwitch,
     props: {
-      gif1: '/images/features/1.webp',
-      gif2: '/images/features/2.webp',
-      gif1Duration: 2000,
-      gif2Duration: 3000,
+      gif1: '/images/features/state1.gif',
+      gif2: '/images/features/state2.gif',
+      gif1Duration: 1300,
+      gif2Duration: 1260,
     },
   },
   {

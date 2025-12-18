@@ -53,7 +53,7 @@ function EmojiBubble({ text, onComplete }: EmojiBubbleProps) {
         duration: 0.3,
         ease: 'easeOut',
       }}
-      className="absolute top-[35%] right-[60%] pointer-events-none z-50"
+      className="absolute top-[55%] right-[70%] pointer-events-none z-50"
     >
       {/* 对话气泡 */}
       <div className="relative">
@@ -91,8 +91,15 @@ export default function EmojiSwitch({
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const debounceTimerRef = useRef<NodeJS.Timeout | null>(null);
   const isDoubleClickRef = useRef(false);
+  const lastDoubleClickTimeRef = useRef(0);
+  const lastClickTimeRef = useRef(0);
 
-  const handleDoubleClick = () => {
+  const handleDoubleClick = useCallback(() => {
+    const now = Date.now();
+    // 双击防抖：500ms 内只触发一次
+    if (now - lastDoubleClickTimeRef.current < 500) return;
+    lastDoubleClickTimeRef.current = now;
+
     // 标记为双击，防止触发单击事件
     isDoubleClickRef.current = true;
     
@@ -124,7 +131,7 @@ export default function EmojiSwitch({
         setIsPlaying(false);
       }, gif2Duration);
     }
-  };
+  }, [currentGif, isPlaying, gif2Duration]);
 
   const handleGifLoad = () => {
     // GIF 加载完成后的处理
@@ -152,6 +159,11 @@ export default function EmojiSwitch({
 
   // 处理单击事件，显示文字泡
   const handleClick = useCallback(() => {
+    const now = Date.now();
+    // 单击防抖：防止极短时间内触发多次
+    if (now - lastClickTimeRef.current < 200) return;
+    lastClickTimeRef.current = now;
+
     // 如果刚刚发生了双击，不执行单击操作
     if (isDoubleClickRef.current) {
       return;
@@ -181,7 +193,7 @@ export default function EmojiSwitch({
         text: randomText,
       };
       setBubbles((prev) => [...prev, newBubble]);
-    }, 600); // 600ms 防抖延迟
+    }, 300); // 300ms 防抖延迟，兼容双击检测
   }, []);
 
   // 处理气泡完成（消失）的回调
@@ -199,7 +211,7 @@ export default function EmojiSwitch({
     >
       {/* GIF1 占位符 */}
       {currentGif === 'gif1' && (
-        <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-warm-peach/20 to-warm-coral/20 rounded-lg">
+        <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-warm-yellow/20 to-warm-orange/20 rounded-lg">
           <div className="text-center">
             <div className="text-6xl mb-2"></div>
             <div className="text-xs text-neutral-gray">双击切换表情</div>
